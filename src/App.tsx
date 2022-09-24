@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
 
-function App() {
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
+
+const App: React.FC = () => {
+  useEffect(() => {
+    let container = document.getElementById("map");
+    let options = {
+      center: new window.kakao.maps.LatLng(
+        37.558090961074825,
+        126.99847210567884
+      ),
+      level: 3,
+    };
+
+    let map = new window.kakao.maps.Map(container, options);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id="map" style={{ width: "100vw", height: "100vh" }} />
     </div>
   );
-}
+};
 
 export default App;
