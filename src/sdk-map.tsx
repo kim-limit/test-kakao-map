@@ -9,7 +9,7 @@ export const SdkMap = () => {
       <MapMarker
         position={{ lat: 37.558090961074825, lng: 126.99847210567884 }}
       >
-        <div style={{ color: "#000" }}>Hello World!</div>
+        {"우리 학교!"}
       </MapMarker>
     </Map>
   );
